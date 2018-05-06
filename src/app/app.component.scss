@@ -1,0 +1,16 @@
+$primar-color: #f2f2f2;
+$secondary-color: #595959;
+$fontSize: 10px;
+
+body {
+    background-color: $primar-color;
+    color: $secondary-color;
+}
+
+h1 {
+    font-size: $fontSize + 20;
+}
+
+h2 {
+    font-size: $fontSize + 15;
+}
