@@ -1,7 +1,125 @@
-<h1>
-  Welcome to the Angular Start Kit!
-</h1>
+<div class="container">
+  <div>
+     <ul class="nav nav-tabs">
+         <li class="tab">
+             <a class="tab-item nav-link" data-toggle="tab" href="#nav-events" role="tab" aria-controls="nav-events" aria-selected="true"> All Events</a>
+         </li>
+         <li class="tab">
+             <a class="tab-item nav-link" data-toggle="tab" href="#nav-upcoming-event" role="tab" aria-controls="nav-upcoming-event" aria-selected="false"> Upcoming Events</a>
+         </li>
+         <li class="tab">
+             <a class="tab-item nav-link" data-toggle="tab" href="#nav-local-event" role="tab" aria-controls="nav-local-event" aria-selected="false"> Local Events</a>
+         </li>
+     </ul>
+      <!--Tab Content-->
+      <div class="tab-content">
+        <div class="tab-pane" id="nav-events">
+            <table class="table events-table">
+                <tr class="events-table-header">
+                    <th>Event Name</th>
+                    <th>Date</th>
+                    <th>Venue</th>
+                    <th>City</th>
+                    <th>State</th>
+                </tr>
+                <tr *ngFor="let item of allEvents">
+                    <td>{{item.name}}</td>
+                    <td>{{item.date}}</td>
+                    <td>{{item.venue.name}}</td>
+                    <td>{{item.venue.city}}</td>
+                    <td>{{item.venue.state}}</td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="tab-pane" id="nav-upcoming-event">
+            Upcoming Events
+        </div>
 
-<p>
-  {{content}}
-</p>
+        <div class="tab-pane" id="nav-local-event">
+            Local Events
+        </div>
+      </div>
+     <button (click)="test()">Test Service</button>
+     <button id="add-btn" data-toggle="modal" data-target="#add-Event-Modal"> Add Event </button>
+     <!--Add Event Modal -->
+     <div id="add-Event-Modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+             <h4 class="modal-title"  id="exampleModalLabel"> Add New Event</h4>
+           </div>
+           <div class="modal-body">
+             <form name="addEventForm">
+                 <p> Event Information</p>
+                 <input placeholder="Event Name">
+                 <input placeholder="Date" id="add-event-date">
+                 <input placeholder="Time" id="add-event-time">
+                 <p> Venue Information</p>
+                 <input placeholder="Venue Name">
+                 <input placeholder="Venue City">
+                 <select name="state" size="1">
+                       <option value="AK">AK</option>
+                       <option value="AL">AL</option>
+                       <option value="AR">AR</option>
+                       <option value="AZ">AZ</option>
+                       <option value="CA">CA</option>
+                       <option value="CO">CO</option>
+                       <option value="CT">CT</option>
+                       <option value="DC">DC</option>
+                       <option value="DE">DE</option>
+                       <option value="FL">FL</option>
+                       <option value="GA">GA</option>
+                       <option value="HI">HI</option>
+                       <option value="IA">IA</option>
+                       <option value="ID">ID</option>
+                       <option value="IL">IL</option>
+                       <option value="IN">IN</option>
+                       <option value="KS">KS</option>
+                       <option value="KY">KY</option>
+                       <option value="LA">LA</option>
+                       <option value="MA">MA</option>
+                       <option value="MD">MD</option>
+                       <option value="ME">ME</option>
+                       <option value="MI">MI</option>
+                       <option value="MN">MN</option>
+                       <option value="MO">MO</option>
+                       <option value="MS">MS</option>
+                       <option value="MT">MT</option>
+                       <option value="NC">NC</option>
+                       <option value="ND">ND</option>
+                       <option value="NE">NE</option>
+                       <option value="NH">NH</option>
+                       <option value="NJ">NJ</option>
+                       <option value="NM">NM</option>
+                       <option value="NV">NV</option>
+                       <option value="NY">NY</option>
+                       <option value="OH">OH</option>
+                       <option value="OK">OK</option>
+                       <option value="OR">OR</option>
+                       <option value="PA">PA</option>
+                       <option value="RI">RI</option>
+                       <option value="SC">SC</option>
+                       <option value="SD">SD</option>
+                       <option value="TN">TN</option>
+                       <option value="TX">TX</option>
+                       <option value="UT">UT</option>
+                       <option value="VA">VA</option>
+                       <option value="VT">VT</option>
+                       <option value="WA">WA</option>
+                       <option value="WI">WI</option>
+                       <option value="WV">WV</option>
+                       <option value="WY">WY</option>
+                 </select>
+                 <div class="modal-footer">
+                     <button type="button" data-dismiss="modal">Close</button>
+                     <button type="submit">Add Event</button>
+                 </div>
+             </form>
+           </div>
+         </div>
+       </div>
+     </div>
+ </div>
+</div>
